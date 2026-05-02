@@ -22,7 +22,8 @@ export default function Header() {
                 })}>Home</Link>
                 <p>Search Modal</p>
                 <Link href="/coins" className={cn('nav-link', {
-                    'is-active': pathname === '/coins',
+                    'is-active':
+                        pathname === "/coins" || pathname.startsWith("/coins/"),
                     
                 })}>All Coins</Link>
             </nav>
