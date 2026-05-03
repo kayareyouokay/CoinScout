@@ -2,11 +2,11 @@
 
 import qs from 'query-string';
 
-const BASE_URL = process.env.COINGECKO_BASE_URL;
+const BASE_URL = process.env.COINGECKO_BASE_URL ;
 const API_KEY = process.env.COINGECKO_API_KEY;
 
 if (!BASE_URL) throw new Error('Could not get the base url');
-if (!API_KEY) throw new Error('COuld not get the API Key');
+if (!API_KEY) throw new Error('Could not get the API Key');
 
 export async function fetcher<T>(
     endPoint: string,
