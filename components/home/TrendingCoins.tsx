@@ -53,7 +53,7 @@ export async function TrendingCoins() {
         {
         header: 'Price',
         cellClassName: 'price-cell',
-        cell: (coin) =>  (coin.item.data.price)
+        cell: (coin) =>  formatCurrency(coin.item.data.price)
         }
     ];
 
