@@ -8,11 +8,16 @@ export async function GET(request: NextRequest) {
     return Response.json({ coins: [] });
   }
 
-  const data = await fetcher<{ coins: SearchCoin[] }>(
-    '/search',
-    { query },
-    60,
-  );
+  try {
+    const data = await fetcher<{ coins: SearchCoin[] }>(
+      '/search',
+      { query },
+      60,
+    );
 
-  return Response.json({ coins: data.coins.slice(0, 8) });
+    return Response.json({ coins: data.coins.slice(0, 8) });
+  } catch (error) {
+    console.error('Error searching coins:', error);
+    return Response.json({ coins: [] }, { status: 502 });
+  }
 }
