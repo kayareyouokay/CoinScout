@@ -47,8 +47,6 @@ export function CandlestickChart({
 
         chartref.current = chart;
         candleSeriesRef.current = series;
-        series.setData(chartData);
-        chart.timeScale().fitContent();
 
         const resizeObserver = new ResizeObserver(([entry]) => {
             chart.applyOptions({ width: entry.contentRect.width });
@@ -61,6 +59,10 @@ export function CandlestickChart({
             chart.remove();
         };
     }, [height]);
+
+    useEffect(() => {
+        chartref.current?.applyOptions(getChartConfig(height, period === 'daily' || period === 'weekly'));
+    }, [height, period]);
 
     useEffect(() => {
         candleSeriesRef.current?.setData(chartData);
