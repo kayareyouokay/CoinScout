@@ -40,7 +40,7 @@ export function CandlestickChart({
 
         const container = chartContainerRef.current;
         const chart = createChart(container, {
-            ...getChartConfig(height, period === 'daily' || period === 'weekly'),
+            ...getChartConfig(height, true),
             width: container.clientWidth,
         });
         const series = chart.addSeries(CandlestickSeries, getCandlestickConfig());
