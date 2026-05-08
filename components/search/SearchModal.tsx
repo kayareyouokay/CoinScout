@@ -37,7 +37,6 @@ export function SearchModal() {
 
   useEffect(() => {
     if (!query.trim()) {
-      setCoins([]);
       return;
     }
 
@@ -73,6 +72,14 @@ export function SearchModal() {
     router.push(`/coins/${coinId}`);
   };
 
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    if (!value.trim()) {
+      setCoins([]);
+      setLoading(false);
+    }
+  };
+
   return (
     <div id="search-modal">
       <button className="trigger" type="button" onClick={() => setOpen(true)}>
@@ -89,7 +96,7 @@ export function SearchModal() {
               <input
                 ref={inputRef}
                 value={query}
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={(event) => handleQueryChange(event.target.value)}
                 placeholder="Search coins..."
                 className="w-full bg-transparent text-sm outline-none"
               />

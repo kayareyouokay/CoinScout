@@ -186,7 +186,7 @@
       }
 
       nav {
-        @apply flex h-full items-center;
+        @apply flex h-full items-center gap-1;
 
         .nav-link {
           @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-100 cursor-pointer;
@@ -625,7 +625,7 @@
 
   #search-modal {
     .trigger {
-      @apply px-6 hover:bg-transparent! font-medium transition-all h-full cursor-pointer text-base text-purple-100 flex items-center gap-2;
+      @apply px-3 sm:px-6 hover:bg-transparent! font-medium transition-all h-full cursor-pointer text-base text-purple-100 flex items-center gap-2;
     }
 
     .kbd {
@@ -633,7 +633,7 @@
     }
 
     .dialog {
-      @apply bg-dark-400! max-w-sm sm:max-w-md md:max-w-2xl mx-auto;
+      @apply bg-dark-400! max-w-sm sm:max-w-md md:max-w-2xl mx-auto overflow-hidden;
     }
 
     .cmd-input {
@@ -663,7 +663,7 @@
     }
 
     .search-item {
-      @apply grid grid-cols-4 gap-4 items-center justify-between data-[selected=true]:bg-dark-400 transition-all !cursor-pointer hover:bg-dark-400 py-3;
+      @apply grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-center justify-between data-[selected=true]:bg-dark-400 transition-all !cursor-pointer hover:bg-dark-400 py-3;
 
       .coin-info {
         @apply flex gap-4 items-center col-span-2;
@@ -682,7 +682,7 @@
       }
 
       .coin-price {
-        @apply font-semibold text-sm lg:text-base;
+        @apply hidden sm:block font-semibold text-sm lg:text-base;
       }
 
       .coin-change {
